@@ -159,7 +159,7 @@ class Main_CatLog_Screen extends StatelessWidget {
               SizedBox(
                 height: 300,
                 width: double.infinity,
-                child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 2/2.6),
+                child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 2/2.6,crossAxisSpacing: 10,mainAxisSpacing: 10),
                     itemCount: discatPro.length,
                     itemBuilder: (context, index) {
                       return
@@ -171,14 +171,22 @@ class Main_CatLog_Screen extends StatelessWidget {
                               boxShadow: [BoxShadow(blurRadius: 2, color: Colors.black26)],),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [Stack(children: [
-                                Center(child: Image.asset(discatPro[index]['discatImg'],fit: BoxFit.fitHeight,height: 180,)),
-                                ClipRRect(clipBehavior: Clip.antiAlias,borderRadius: BorderRadius.circular(22),child: Image.asset('assets/images/heart.jpg',height: 30,))
+                                Center(child: Image.asset(discatPro[index]['discatImg'],fit: BoxFit.fill,height: 180,)),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(0,5,5,0),
+                                  child: ClipRRect(clipBehavior: Clip.antiAlias,borderRadius: BorderRadius.circular(22),child: Image.asset('assets/images/heart.jpg',height: 30,)),
+                                )
                               ],
                               ),
-                                Text(discatPro[index]['discatName']),
-                                Text("Price : 120.00"),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(discatPro[index]['discatName']),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text("Price : \$120.00"),
+                                ),
                                ]
                                 ),
 
